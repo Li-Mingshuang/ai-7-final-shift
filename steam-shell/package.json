@@ -1,0 +1,29 @@
+{
+  "name": "ai7-final-shift",
+  "version": "1.0.0",
+  "description": "AI 毁灭世界：最后一班岗（黑白简笔画互动剧场）",
+  "main": "main.js",
+  "author": "you",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win zip nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourname.ai7finalshift",
+    "productName": "AI-7 最后一班岗",
+    "files": ["web/**/*", "main.js"],
+    "win": {
+      "target": ["nsis", "zip"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

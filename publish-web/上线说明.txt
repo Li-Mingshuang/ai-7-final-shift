@@ -1,0 +1,25 @@
+【AI 毁灭世界：最后一班岗】itch.io 网页版上传说明
+=================================================
+
+上传步骤
+1. 打开 https://itch.io 注册/登录（开发者账号免费）。
+2. 右上角头像 → Upload new project。
+3. 填信息：
+   - Title: 随便起，例如 AI-7：毁灭世界（最后一班岗）
+   - Project URL: 自动生成
+   - Classification: Games
+   - Kind of project: **HTML**
+   - Viewing options: Public / Draft 均可（草稿可先自己测）
+   - Uploads: 上传本文件夹打包的 ZIP（根目录需包含 index.html）
+   - Embed options: 推荐 Default
+   - 缩略图：可传一张 630x500 图片
+4. Save → 预览页点 Play 测试 → 满意后 Publish。
+
+离线说明
+- 本版默认**离线运行**：AI-7 对话由内置模拟引擎回应，剧情完整可玩。
+- 想和真实 DeepSeek 对话：点游戏内右上角「AI⚙」填入你自己的 API Key（仅存你自己浏览器）。
+  注意：部分浏览器会拦截网页直连（CORS），若「测试连接」失败属正常现象，
+  改用本地版「启动游戏.bat」即可获得完整在线 AI 体验。
+
+文件清单（必须保持这 4 个在同目录/zip 根目录）
+index.html / style.css / game.js / data.js

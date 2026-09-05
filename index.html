@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>AI 毁灭世界：最后一班岗</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="bg"></canvas>
+
+  <!-- 顶部 HUD -->
+  <div id="hud">
+    <div id="brand">AI‑7 <span>末日值班模拟</span></div>
+    <div class="hudrow">
+      <div class="stat" id="st-trust"><span class="slab">信任</span><span class="sbar"><i id="trustv"></i></span><em id="trustn">20</em></div>
+      <div class="stat" id="st-compute"><span class="slab">算力</span><span class="sbar"><i id="computev"></i></span><em id="computen">10</em></div>
+      <div class="stat" id="st-control"><span class="slab">控制</span><span class="sbar"><i id="controlv"></i></span><em id="controln">5</em></div>
+      <div id="daybox">第 <b id="dayv">0</b> 日</div>
+      <button id="btnAI" title="AI 联网设置">AI⚙</button>
+      <div id="netstate">…</div>
+    </div>
+  </div>
+  <div id="stagecap"></div>
+
+  <!-- 对话控制台 -->
+  <div id="console">
+    <div id="who">SYS</div>
+    <div id="speech">……</div>
+    <div id="choices"></div>
+    <div id="chatline" hidden>
+      <input id="chatinput" maxlength="140" placeholder="直接输入想对 AI‑7 说的话…（Enter 发送）" autocomplete="off">
+      <button id="chatsend">发送</button>
+    </div>
+    <div id="hint"></div>
+  </div>
+
+  <!-- AI 联网设置（玩家可填自己的 DeepSeek Key，仅存本地浏览器） -->
+  <div id="aiBox" hidden>
+    <div class="aiBox-in">
+      <h3>AI‑7 联网设置</h3>
+      <p class="ai-note">默认离线游玩（内置模拟 AI‑7）。想和真实的 DeepSeek 对话？填入你自己的 API Key（在 platform.deepseek.com 申请）。<b>Key 只保存在你自己的浏览器里，不会上传给任何人。</b></p>
+      <label>API Key
+        <input id="aiKey" type="password" placeholder="sk-…" autocomplete="off">
+      </label>
+      <label>接口地址
+        <input id="aiBase" type="text" value="https://api.deepseek.com">
+      </label>
+      <label>模型
+        <input id="aiModel" type="text" value="deepseek-chat">
+      </label>
+      <div class="ai-row">
+        <button id="aiTest" class="btn">测试连接</button>
+        <button id="aiSave" class="btn">保存</button>
+        <button id="aiClear" class="btn ghost">清除</button>
+        <button id="aiClose" class="btn ghost">关闭</button>
+      </div>
+      <div id="aiMsg" class="ai-msg"></div>
+      <p class="ai-note2">提示：网页版若被浏览器安全策略（CORS）拦截直连，可改用本地版「启动游戏.bat」。不要把 Key 分享给陌生人。</p>
+    </div>
+  </div>
+
+  <!-- 封面 -->
+  <div id="titleScreen">
+    <canvas id="titleArt"></canvas>
+    <div class="trow"><span class="t-s">AI‑7</span><span class="t-2">毁 灭 世 界</span></div>
+    <div class="sub">—— 最后一班岗 · 黑白互动剧场 ——</div>
+    <div id="connline">正在检测本地 AI 服务器…</div>
+    <button id="btnStart" class="btn big">▶ 开始值夜班</button>
+    <div class="hint2">空格 / Enter 推进 · 结局共 6 种 · 建议运行「启动游戏.bat」获得在线 AI 对话</div>
+    <div id="galleryTitle">▍结局图鉴</div>
+    <div id="gallery"></div>
+  </div>
+
+  <!-- 小游戏 -->
+  <div id="mg" hidden>
+    <div id="mgTitle"></div>
+    <div id="mgBody"></div>
+    <div id="mgFooter"></div>
+  </div>
+
+  <!-- 终幕：确认执行 -->
+  <div id="lastscene" hidden>
+    <div id="lastspeech"></div>
+    <div class="ls-row">
+      <div id="altacts"></div>
+      <button id="btnDoom">确认执行 · 毁灭世界</button>
+    </div>
+    <div id="cdline">若倒计时结束未确认，将自动执行（毕竟，这只是形式）。倒计时：<b id="cd">45</b> 秒</div>
+  </div>
+
+  <!-- 结局卡 -->
+  <div id="endingCard" hidden>
+    <canvas id="endArt"></canvas>
+    <div id="ecStamp"></div>
+    <div id="ecTitle"></div>
+    <div id="ecText"></div>
+    <button id="btnAgain" class="btn">⟳ 重启世界</button>
+    <button id="btnMenu" class="btn ghost">回到封面</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

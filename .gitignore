@@ -1,0 +1,18 @@
+# 秘密文件（绝不提交）
+config.json
+.env
+
+# 依赖与构建产物
+node_modules/
+dist/
+release/
+*.log
+
+# 发布包（用 GitHub Releases 放）
+*.zip
+*.rar
+*.7z
+
+# 系统文件
+Thumbs.db
+.DS_Store

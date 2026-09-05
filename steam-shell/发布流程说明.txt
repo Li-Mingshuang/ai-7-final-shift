@@ -1,0 +1,48 @@
+【Steam 发布全流程】AI-7 最后一班岗
+====================================
+
+第 0 步：本机先跑起来
+1. 安装 Node.js LTS：https://nodejs.org
+2. 在本文件夹打开命令行（或资源管理器地址栏输入 cmd 回车）：
+      npm install
+      npm start
+   应弹出桌面窗口运行游戏（web/ 里是网页本体，改这里再打包）。
+
+第 1 步：注册 Steamworks 开发者
+1. 打开 https://partner.steamgames.com 用 Steam 账号登录（需要 Steam 账号消费过
+   一定金额，通常在 Steam 买过游戏即可）。
+2. 完成税务信息（国内个人开发者填 W-8BEN）、银行收款信息、实名验证。
+3. 支付一次性 Steam Direct 注册费 US$100（Steam 的「发行通道费」，销售额达到
+   官方门槛后可退回；当前政策见 https://partner.steamgames.com/doc/gettingstarted/appfee）。
+
+第 2 步：创建应用
+1. Steamworks 首页 → Create New App → 选产品类型（Game）→ 填 App Name 等。
+2. 每台 PC 一个 App；正式发售前保持「未发布/Coming Soon」状态即可上架商店页。
+
+第 3 步：准备商店页（审核约数天~两周）
+1. 截图至少 5 张（1280x720 以上）、宣传图 capsul（小图 231x87 / 大图 616x353 等）、
+   建议再传一张 Library Hero 与 Logo。
+2. 填写完整描述、发行日期、定价（$0.99~$4.99 常见起步价）、成人内容问卷。
+3. 提交商店页审核，等 Valve 通过。
+
+第 4 步：上传游戏本体（SteamPipe）
+1. 先在本文件夹跑：npm run dist（生成 dist/ 下的 exe 安装包与 zip）。
+2. Steamworks → SteamPipe：安装并运行 steamcmd，或用网页版上传工具：
+      deposit app <AppID> ... / <本地文件路径>
+   Steam 会把这个上传作为 depot 版本。
+3. 设置公开 Branch（默认 public），标记版本为「测试版」先自查一次下载安装。
+
+第 5 步：QA 与发售
+1. 用另一台干净电脑下载安装自测（首次启动、通关、中文显示、存档）。
+2. 一切正常后：商店页状态设为 Released（或预约 Coming Soon 后定时解锁）。
+3. Valve 对首次发行有约 30 天收款延迟，之后按 70/30 分成（平台抽 30%）。
+
+联网 AI 提示
+- 发布版默认离线（内置模拟 AI-7）。
+- 玩家可点右上角 AI⚙ 填自己的 DeepSeek Key（仅存本机），本壳已放开 CORS 直连。
+- 若你希望所有玩家共享在线 AI（如服务器版），需要你自己的后端转发 DeepSeek，
+  不要内置任何共享 Key。
+
+更快起步建议
+- 想先试水：itch.io 上传网页版（见 ../publish-web/）。
+- Steam 页面别急着定价：先用 Coming Soon 攒愿望单，再用小促销上线。
